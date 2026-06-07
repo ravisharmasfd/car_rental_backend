@@ -39,3 +39,5 @@ process.on('unhandledRejection', (error: any) => {
 	logger.error(`Error occurred while starting the server: \n ${error}`);
 	log(error.message);
 });
+// Trigger nodemon restart
+

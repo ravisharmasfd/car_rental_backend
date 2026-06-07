@@ -12,7 +12,7 @@ export default {
 		PROTOCOL: process.env.DB_PROTOCOL || 'mongodb',
 		HOST: process.env.DB_HOST || '127.0.0.1',
 		PORT: process.env.DB_PORT || 27017,
-		NAME: process.env.DB_NAME || 'HorserHoof-db',
+		NAME: process.env.DB_NAME || 'CarRental_DB',
 		USER: process.env.DB_USER || '',
 		PASSWORD: process.env.DB_PASSWORD || '',
 		get DATABASE_URI() {

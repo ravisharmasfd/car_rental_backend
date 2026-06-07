@@ -67,15 +67,12 @@ export const uploadFile = async (payload: any) => {
 		fileName = `${Date.now()}_${fileNameArray.filter((ele: any) => ele !== fileExtention).join('_')}.${fileExtention}`;
 
 	switch (payload.type) {
-	case UPLOAD_FILE_TYPE.USER_PROFILE:
-		filePath = 'user-profile/';
-		break;
-	case UPLOAD_FILE_TYPE.USER_HORSE:
-		filePath = 'user-horse/';
-		break;
-	default:
-		filePath = 'other/';
-		break;
+		case UPLOAD_FILE_TYPE.USER_PROFILE:
+			filePath = 'user-profile/';
+			break;
+		default:
+			filePath = 'other/';
+			break;
 	}
 	if (CONFIG.UPLOAD_TO_S3_BUCKET) {
 		fileName = `${payload?.user._id || '0'}/${filePath}${fileName}`;

@@ -15,12 +15,11 @@ export const uploadSingleFile = async (payload: any) => {
 	}
 
 	switch (payload.type) {
-	case UPLOAD_FILE_TYPE.USER_PROFILE:
-	case UPLOAD_FILE_TYPE.USER_HORSE:
-		if (!payload.file.mimetype || !(payload.file.mimetype.startsWith('image/') || payload.file.mimetype.startsWith('video/'))) {
-			throw createErrorResponse(payload?.user?.languagePreference, RESPONSE_MESSAGES.INVALID_FILE_TYPE, ERROR_TYPES.BAD_REQUEST);
-		}
-		break;
+		case UPLOAD_FILE_TYPE.USER_PROFILE:
+			if (!payload.file.mimetype || !(payload.file.mimetype.startsWith('image/') || payload.file.mimetype.startsWith('video/'))) {
+				throw createErrorResponse(payload?.user?.languagePreference, RESPONSE_MESSAGES.INVALID_FILE_TYPE, ERROR_TYPES.BAD_REQUEST);
+			}
+			break;
 	}
 
 	const filePath = await uploadFile(payload);

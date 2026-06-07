@@ -67,3 +67,20 @@ export interface IErrorLogModel extends Document, SoftDeleteDocument {
 	createdAt?: Date;
 	updatedAt?: Date;
 }
+
+export interface ICarModel extends Document, SoftDeleteDocument {
+	_id: Types.ObjectId;
+	name: string;
+	model: any;
+	image: string;
+	passengers: number;
+	luggage: number;
+	category: string;
+	badge?: string;
+	features: string[];
+	description: string;
+	status: number;
+	createdAt?: Date;
+	updatedAt?: Date;
+}
+
