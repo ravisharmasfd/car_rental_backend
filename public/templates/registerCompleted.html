@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome to Attendance System</title>
+  <style>
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background-color: #f5f7fa;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      overflow: hidden;
+    }
+    .header {
+      background: linear-gradient(135deg, #38a169, #276749);
+      padding: 30px 40px;
+      text-align: center;
+    }
+    .header h1 {
+      color: #fff;
+      margin: 0;
+      font-size: 32px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+    .body {
+      padding: 40px;
+      text-align: center;
+    }
+    .body h2 {
+      color: #2d3748;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .body p {
+      color: #4a5568;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+    .btn {
+      display: inline-block;
+      background-color: #38a169;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .footer {
+      background-color: #f7fafc;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #718096;
+      border-top: 1px solid #e2e8f0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Attendance System</h1>
+    </div>
+
+    <div class="body">
+      <!-- <h2>Welcome, {{name}}! 🎉</h2> -->
+      <h2>Welcome, {{name}}! 🎉</h2>
+      <p>We're thrilled to have you as part of our growing community.</p>
+      <p>Your registration was successful. You can now start exploring, connecting, and creating with Attendance System App.</p>
+      <!-- <a href="{{loginLink}}" class="btn">Go to Dashboard</a> -->
+    </div>
+
+    <div class="footer">
+      <p>&copy; 2025 Attendance System. All rights reserved.</p>
+    </div>
+  </div>
+</body>
+</html>
