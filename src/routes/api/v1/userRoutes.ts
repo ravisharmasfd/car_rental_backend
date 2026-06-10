@@ -65,7 +65,7 @@ const routes = [
 		path: '/v1/user',
 		joiSchemaForSwagger: {
 			headers: {
-				authorization: Joi.string().required().description('Your\'s JWT token.')
+				authorization: Joi.string().required().description("Your's JWT token.")
 			},
 			body: {
 				name: Joi.string().required().description('Name of the user.'),
@@ -99,7 +99,7 @@ const routes = [
 		path: '/v1/user/skipTour',
 		joiSchemaForSwagger: {
 			headers: {
-				authorization: Joi.string().required().description('Your\'s JWT token.')
+				authorization: Joi.string().required().description("Your's JWT token.")
 			},
 			group: 'User',
 			description: 'Route to skip user tour.',
@@ -113,7 +113,7 @@ const routes = [
 		path: '/v1/user/details',
 		joiSchemaForSwagger: {
 			headers: {
-				authorization: Joi.string().required().description('Your\'s JWT token.')
+				authorization: Joi.string().required().description("Your's JWT token.")
 			},
 			group: 'User',
 			description: 'Route to fetch user details.',
@@ -234,7 +234,7 @@ const routes = [
 		path: '/v1/user/changePassword',
 		joiSchemaForSwagger: {
 			headers: {
-				authorization: Joi.string().required().description('Your\'s JWT token.')
+				authorization: Joi.string().required().description("Your's JWT token.")
 			},
 			body: {
 				oldPassword: Joi.string().required().description('Old password for the user.'),
@@ -252,7 +252,7 @@ const routes = [
 		path: '/v1/user/logout',
 		joiSchemaForSwagger: {
 			headers: {
-				authorization: Joi.string().required().description('Your\'s JWT token.')
+				authorization: Joi.string().required().description("Your's JWT token.")
 			},
 			group: 'User',
 			description: 'Route to logout a user.',
@@ -266,7 +266,7 @@ const routes = [
 		path: '/v1/user/selectLanguage',
 		joiSchemaForSwagger: {
 			headers: {
-				authorization: Joi.string().required().description('Your\'s JWT token.')
+				authorization: Joi.string().required().description("Your's JWT token.")
 			},
 			body: {
 				languagePreference: Joi.number()

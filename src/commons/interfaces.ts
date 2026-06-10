@@ -100,4 +100,16 @@ export interface IInvoiceModel extends Document, SoftDeleteDocument {
 	updatedAt?: Date;
 }
 
-
+export interface IContactModel extends Document, SoftDeleteDocument {
+	_id: Types.ObjectId;
+	name: string;
+	email: string;
+	phone: string;
+	service: string;
+	pickupDate?: string;
+	passengers?: string;
+	message: string;
+	status: string;
+	createdAt?: Date;
+	updatedAt?: Date;
+}

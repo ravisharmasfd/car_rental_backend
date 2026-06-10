@@ -385,8 +385,8 @@ export const generateCompleteFileUrlWithOutToken = (file: string) => {
 export const generateCompleteFileUrlAggregate = (path: string) => {
 	return {
 		$cond: {
-			if: { $ifNull: [ path, false ] },
-			then: { $concat: [ config.SERVER_URL, '/v1/file/', path, '?securedToken=', generateSecuredToken() ] },
+			if: { $ifNull: [path, false] },
+			then: { $concat: [config.SERVER_URL, '/v1/file/', path, '?securedToken=', generateSecuredToken()] },
 			else: '$$REMOVE'
 		}
 	};
@@ -401,13 +401,13 @@ export const generateCompleteFileUrlAggregate = (path: string) => {
 export const generateCompleteFileUrlArrayAggregate = (pathKey: string) => {
 	return {
 		$cond: {
-			if: { $and: [ { $isArray: `$${pathKey}` }, { $gt: [ { $size: `$${pathKey}` }, 0 ] } ] },
+			if: { $and: [{ $isArray: `$${pathKey}` }, { $gt: [{ $size: `$${pathKey}` }, 0] }] },
 			then: {
 				$map: {
 					input: `$${pathKey}`,
 					as: 'img',
 					in: {
-						$concat: [ config.SERVER_URL, '/v1/file/', '$$img', '?securedToken=', generateSecuredToken() ]
+						$concat: [config.SERVER_URL, '/v1/file/', '$$img', '?securedToken=', generateSecuredToken()]
 					}
 				}
 			},
@@ -430,8 +430,8 @@ export const USER_BASIC_PROJECTION = () => {
 		isOnline: 1,
 		profilePicture: {
 			$cond: {
-				if: { $ifNull: [ '$profilePicture', false ] },
-				then: { $concat: [ config.SERVER_URL, '/v1/file/', '$profilePicture', '?securedToken=', generateSecuredToken() ] },
+				if: { $ifNull: ['$profilePicture', false] },
+				then: { $concat: [config.SERVER_URL, '/v1/file/', '$profilePicture', '?securedToken=', generateSecuredToken()] },
 				else: '$$REMOVE'
 			}
 		},

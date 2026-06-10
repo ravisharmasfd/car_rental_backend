@@ -130,11 +130,11 @@ export const handleStripeWebhook = async (payload: any) => {
 						currencySymbol,
 						attachments: stripeInvoice.invoice_pdf
 							? [
-								{
-									filename: `invoice_${localInvoice.invoiceNumber || stripeInvoice.number}.pdf`,
-									path: stripeInvoice.invoice_pdf // Nodemailer automatically downloads from URL
-								}
-							]
+									{
+										filename: `invoice_${localInvoice.invoiceNumber || stripeInvoice.number}.pdf`,
+										path: stripeInvoice.invoice_pdf // Nodemailer automatically downloads from URL
+									}
+								]
 							: []
 					},
 					EMAIL_TYPES.INVOICE_PAID

@@ -55,11 +55,15 @@ export const RESPONSE_MESSAGES = {
 	TRY_AFTER_SOMETIME: 'TRY_AFTER_SOMETIME',
 	ACCOUNT_SUSPENDED: 'ACCOUNT_SUSPENDED',
 	CAR_NOT_FOUND: 'CAR_NOT_FOUND',
+	CONTACT_NOT_FOUND: 'CONTACT_NOT_FOUND',
 	CAR_CREATED_SUCCESSFULLY: 'CAR_CREATED_SUCCESSFULLY',
 	CAR_UPDATED_SUCCESSFULLY: 'CAR_UPDATED_SUCCESSFULLY',
 	CAR_DELETED_SUCCESSFULLY: 'CAR_DELETED_SUCCESSFULLY',
 	INVOICE_CREATED_SUCCESSFULLY: 'INVOICE_CREATED_SUCCESSFULLY',
-	INVOICE_FETCHED_SUCCESSFULLY: 'INVOICE_FETCHED_SUCCESSFULLY'
+	INVOICE_FETCHED_SUCCESSFULLY: 'INVOICE_FETCHED_SUCCESSFULLY',
+	CONTACT_REQUEST_SUBMITTED_SUCCESSFULLY: 'CONTACT_REQUEST_SUBMITTED_SUCCESSFULLY',
+	CONTACT_REQUEST_UPDATED_SUCCESSFULLY: 'CONTACT_REQUEST_UPDATED_SUCCESSFULLY',
+	CONTACT_REQUEST_FETCHED_SUCCESSFULLY: 'CONTACT_REQUEST_FETCHED_SUCCESSFULLY'
 };
 
 export const ERROR_TYPES = {
@@ -88,7 +92,9 @@ export const EMAIL_TYPES = {
 	REGISTER_COMPLETE: 3,
 	STAFF_CREDENTIALS: 4,
 	INVOICE_CREATED: 5,
-	INVOICE_PAID: 6
+	INVOICE_PAID: 6,
+	CONTACT_ADMIN_ALERT: 7,
+	CONTACT_USER_CONFIRMATION: 8
 };
 
 export const GENDERS = {
@@ -126,11 +132,13 @@ export const EMAIL_SUBJECTS = {
 	REGISTER_COMPLETE: 'Welcome to Attendance System',
 	STAFF_CREDENTIALS: 'Your Staff Account Credentials - Attendance System',
 	INVOICE_CREATED: 'Invoice from Tri State',
-	INVOICE_PAID: 'Payment Confirmed - Tri State'
+	INVOICE_PAID: 'Payment Confirmed - Tri State',
+	CONTACT_ADMIN_ALERT: 'New Booking Request Received',
+	CONTACT_USER_CONFIRMATION: 'We received your booking request'
 };
 
 export const UPLOAD_FILE_TYPE = {
-	USER_PROFILE: 1,
+	USER_PROFILE: 1
 };
 
 export const EMAIL_CONTENTS = {
@@ -139,14 +147,22 @@ export const EMAIL_CONTENTS = {
 	REGISTER_COMPLETE: fs.readFileSync(path.join(__dirname, '../../public/templates/registerCompleted.html'), { encoding: 'utf-8' }),
 	STAFF_CREDENTIALS: fs.readFileSync(path.join(__dirname, '../../public/templates/staffCredentials.html'), { encoding: 'utf-8' }),
 	INVOICE_CREATED: fs.readFileSync(path.join(__dirname, '../../public/templates/invoiceCreated.html'), { encoding: 'utf-8' }),
-	INVOICE_PAID: fs.readFileSync(path.join(__dirname, '../../public/templates/invoicePaid.html'), { encoding: 'utf-8' })
+	INVOICE_PAID: fs.readFileSync(path.join(__dirname, '../../public/templates/invoicePaid.html'), { encoding: 'utf-8' }),
+	CONTACT_ADMIN_ALERT: fs.readFileSync(path.join(__dirname, '../../public/templates/contactAdminAlert.html'), { encoding: 'utf-8' }),
+	CONTACT_USER_CONFIRMATION: fs.readFileSync(path.join(__dirname, '../../public/templates/contactUserConfirmation.html'), { encoding: 'utf-8' })
 };
 
-export const SPECIAL_CHARACTERS = ['~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '{', '}', '[', ']', '|', '/', ':', ';', '"', '\'', '<', '>', ',', '.', '?'];
+export const SPECIAL_CHARACTERS = ['~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '{', '}', '[', ']', '|', '/', ':', ';', '"', "'", '<', '>', ',', '.', '?'];
 
 export const USER_STATUS = {
 	ACTIVE: 1,
 	INACTIVE: 2
+};
+
+export const CONTACT_STATUS = {
+	PENDING: 'pending',
+	IN_PROGRESS: 'in_progress',
+	RESOLVED: 'resolved'
 };
 
 export const LANGUAGE = {
@@ -182,5 +198,5 @@ export const ERROR_LOGS_TYPES = {
 };
 
 export const USER_TYPES = {
-	OWNER: 1,
+	OWNER: 1
 };

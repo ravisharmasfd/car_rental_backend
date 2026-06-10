@@ -51,4 +51,3 @@ export const migerateDatabase = async () => {
 		dbVersion = await dbVersionModel.findOneAndUpdate({}, { $set: { version: DATABASE_VERSIONS.TWO } }, { upsert: true, new: true }).lean();
 	}
 };
-

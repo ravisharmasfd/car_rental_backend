@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <style>
+    body { font-family: Arial, sans-serif; background: #0a0a0a; color: #ffffff; margin: 0; padding: 0; }
+    .container { max-width: 600px; margin: 20px auto; background: #111111; border: 1px solid rgba(201, 168, 76, 0.2); border-radius: 12px; overflow: hidden; }
+    .header { background: linear-gradient(135deg, #9A7A2E, #C9A84C, #E8C97A); padding: 32px 24px; text-align: center; }
+    .header h1 { color: #000; margin: 0; font-size: 24px; font-weight: bold; letter-spacing: 2px; }
+    .header p { color: #000; margin: 4px 0 0; font-size: 12px; opacity: 0.7; }
+    .body { padding: 32px 24px; }
+    .section-title { color: #C9A84C; font-size: 11px; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 16px; }
+    .field { margin-bottom: 16px; padding: 14px 16px; background: #1a1a1a; border: 1px solid rgba(201, 168, 76, 0.13); border-radius: 8px; }
+    .field-label { color: rgba(255, 255, 255, 0.4); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 4px; }
+    .field-value { color: #ffffff; font-size: 15px; }
+    .message-box { background: #1a1a1a; border: 1px solid rgba(201, 168, 76, 0.2); border-radius: 8px; padding: 16px; margin-top: 8px; color: rgba(255, 255, 255, 0.8); line-height: 1.6; }
+    .footer { background: #0a0a0a; padding: 20px 24px; text-align: center; border-top: 1px solid rgba(201, 168, 76, 0.13); }
+    .footer p { color: rgba(255, 255, 255, 0.27); font-size: 12px; margin: 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>ETS — New Booking Request</h1>
+      <p>Executive Transportation Service</p>
+    </div>
+    <div class="body">
+      <div class="section-title">Client Information</div>
+      <div class="field">
+        <div class="field-label">Full Name</div>
+        <div class="field-value">{{name}}</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Email Address</div>
+        <div class="field-value">{{email}}</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Phone Number</div>
+        <div class="field-value">{{phone}}</div>
+      </div>
+
+      <div class="section-title" style="margin-top:24px">Trip Details</div>
+      <div class="field">
+        <div class="field-label">Service Type</div>
+        <div class="field-value">{{service}}</div>
+      </div>
+      {{#if pickupDate}}
+      <div class="field">
+        <div class="field-label">Pickup Date</div>
+        <div class="field-value">{{pickupDate}}</div>
+      </div>
+      {{/if}}
+      {{#if passengers}}
+      <div class="field">
+        <div class="field-label">Passengers</div>
+        <div class="field-value">{{passengers}}</div>
+      </div>
+      {{/if}}
+
+      <div class="section-title" style="margin-top:24px">Message</div>
+      <div class="message-box">{{{message}}}</div>
+    </div>
+    <div class="footer">
+      <p>This request was submitted via the ETS website contact form.</p>
+    </div>
+  </div>
+</body>
+</html>
