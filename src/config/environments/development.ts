@@ -30,6 +30,8 @@ type Config = {
 	AGORA_APP_ID: string;
 	AGORA_APP_CERTIFICATE: string;
 	WARDROBE_SEARCH_VECTOR_INDEX: string;
+	STRIPE_SECRET_KEY: string;
+	STRIPE_WEBHOOK_SECRET: string;
 };
 
 const config: Config = {
@@ -52,7 +54,7 @@ const config: Config = {
 				user: process.env.NODEMAILER_USER || 'node-mailer-user',
 				pass: process.env.NODEMAILER_PASSWORD || 'node-mailer-password'
 			},
-			secure: true
+			secure: Number(process.env.NODEMAILER_PORT || 25) === 465
 			// tls: { rejectUnauthorized: true }
 		},
 		SENDER: process.env.SENDER_EMAIL || 'test.user@yopmail.com'
@@ -102,7 +104,9 @@ const config: Config = {
 	IOS_BUNDLE_ID: process.env.IOS_BUNDLE_ID || 'com.yourcompany.yourapp',
 	AGORA_APP_ID: process.env.AGORA_APP_ID || 'your-agora-app-id',
 	AGORA_APP_CERTIFICATE: process.env.AGORA_APP_CERTIFICATE || 'your-agora-app-certificate',
-	WARDROBE_SEARCH_VECTOR_INDEX: process.env.WARDROBE_SEARCH_VECTOR_INDEX || 'wardrobe_suggestion'
+	WARDROBE_SEARCH_VECTOR_INDEX: process.env.WARDROBE_SEARCH_VECTOR_INDEX || 'wardrobe_suggestion',
+	STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY || 'sk_test_51N...',
+	STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET || 'whsec_...'
 };
 
 export default config;

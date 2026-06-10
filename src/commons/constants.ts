@@ -57,7 +57,9 @@ export const RESPONSE_MESSAGES = {
 	CAR_NOT_FOUND: 'CAR_NOT_FOUND',
 	CAR_CREATED_SUCCESSFULLY: 'CAR_CREATED_SUCCESSFULLY',
 	CAR_UPDATED_SUCCESSFULLY: 'CAR_UPDATED_SUCCESSFULLY',
-	CAR_DELETED_SUCCESSFULLY: 'CAR_DELETED_SUCCESSFULLY'
+	CAR_DELETED_SUCCESSFULLY: 'CAR_DELETED_SUCCESSFULLY',
+	INVOICE_CREATED_SUCCESSFULLY: 'INVOICE_CREATED_SUCCESSFULLY',
+	INVOICE_FETCHED_SUCCESSFULLY: 'INVOICE_FETCHED_SUCCESSFULLY'
 };
 
 export const ERROR_TYPES = {
@@ -84,7 +86,9 @@ export const EMAIL_TYPES = {
 	WELCOME_EMAIL: 1,
 	FORGOT_PASSWORD_EMAIL: 2,
 	REGISTER_COMPLETE: 3,
-	STAFF_CREDENTIALS: 4
+	STAFF_CREDENTIALS: 4,
+	INVOICE_CREATED: 5,
+	INVOICE_PAID: 6
 };
 
 export const GENDERS = {
@@ -120,7 +124,9 @@ export const EMAIL_SUBJECTS = {
 	FORGOT_PASSWORD_EMAIL: 'Reset your password',
 	WELCOME_EMAIL: 'Welcome to Attendance System',
 	REGISTER_COMPLETE: 'Welcome to Attendance System',
-	STAFF_CREDENTIALS: 'Your Staff Account Credentials - Attendance System'
+	STAFF_CREDENTIALS: 'Your Staff Account Credentials - Attendance System',
+	INVOICE_CREATED: 'Invoice from Tri State',
+	INVOICE_PAID: 'Payment Confirmed - Tri State'
 };
 
 export const UPLOAD_FILE_TYPE = {
@@ -131,7 +137,9 @@ export const EMAIL_CONTENTS = {
 	FORGOT_PASSWORD_EMAIL: fs.readFileSync(path.join(__dirname, '../../public/templates/forgotPassword.html'), { encoding: 'utf-8' }),
 	WELCOME_EMAIL: fs.readFileSync(path.join(__dirname, '../../public/templates/welcomeOnboard.html'), { encoding: 'utf-8' }),
 	REGISTER_COMPLETE: fs.readFileSync(path.join(__dirname, '../../public/templates/registerCompleted.html'), { encoding: 'utf-8' }),
-	STAFF_CREDENTIALS: fs.readFileSync(path.join(__dirname, '../../public/templates/staffCredentials.html'), { encoding: 'utf-8' })
+	STAFF_CREDENTIALS: fs.readFileSync(path.join(__dirname, '../../public/templates/staffCredentials.html'), { encoding: 'utf-8' }),
+	INVOICE_CREATED: fs.readFileSync(path.join(__dirname, '../../public/templates/invoiceCreated.html'), { encoding: 'utf-8' }),
+	INVOICE_PAID: fs.readFileSync(path.join(__dirname, '../../public/templates/invoicePaid.html'), { encoding: 'utf-8' })
 };
 
 export const SPECIAL_CHARACTERS = ['~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '{', '}', '[', ']', '|', '/', ':', ';', '"', '\'', '<', '>', ',', '.', '?'];

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Confirmation - Tri State</title>
+    <style>
+        body {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            line-height: 1.6;
+            color: #E0E0E0;
+            background-color: #0A0A0A;
+            margin: 0;
+            padding: 0;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: #121212;
+            border-radius: 8px;
+            border: 1px solid #c5a880;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+        .email-header {
+            background-color: #0F0F0F;
+            padding: 40px 40px 20px 40px;
+            text-align: center;
+            border-bottom: 1px solid rgba(197, 168, 128, 0.2);
+        }
+        .brand-title {
+            color: #d4af37;
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin: 0;
+        }
+        .brand-subtitle {
+            color: #A0A0A0;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: 5px 0 0 0;
+        }
+        .email-body {
+            padding: 40px;
+        }
+        .success-banner {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .success-icon {
+            font-size: 48px;
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+        h2 {
+            color: #FFFFFF;
+            font-size: 22px;
+            font-weight: normal;
+            margin: 10px 0;
+        }
+        p {
+            color: #B0B0B0;
+            font-size: 15px;
+            margin-bottom: 20px;
+            font-family: 'Inter', Arial, sans-serif;
+        }
+        .receipt-card {
+            background-color: #0F0F0F;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            margin: 25px 0;
+            font-family: 'Inter', Arial, sans-serif;
+        }
+        .receipt-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 14px;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+            padding-bottom: 12px;
+        }
+        .receipt-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .receipt-label {
+            color: #A0A0A0;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+        .receipt-value {
+            color: #E0E0E0;
+            font-weight: 500;
+        }
+        .receipt-value.total {
+            color: #FFFFFF;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .badge-paid {
+            display: inline-block;
+            background-color: rgba(46, 125, 50, 0.15);
+            color: #4caf50;
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            padding: 4px 10px;
+            font-size: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+        }
+        .email-footer {
+            background-color: #0F0F0F;
+            padding: 30px 40px;
+            text-align: center;
+            font-size: 12px;
+            color: #707070;
+            border-top: 1px solid rgba(197, 168, 128, 0.1);
+            font-family: 'Inter', Arial, sans-serif;
+        }
+        .footer-links {
+            margin-top: 10px;
+        }
+        .footer-link {
+            color: #c5a880;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="email-header">
+            <div class="brand-title">Tri State</div>
+            <div class="brand-subtitle">Luxury Fleet & Chauffeur Services</div>
+        </div>
+        
+        <div class="email-body">
+            <div class="success-banner">
+                <div class="success-icon">✓</div>
+                <h2>Payment Confirmed</h2>
+                <p>Your payment has been received successfully. Thank you for your business!</p>
+            </div>
+            
+            <p>Dear Valued Client,</p>
+            <p>This email serves as a formal confirmation of your payment. We have compiled your paid invoice and attached a PDF copy to this email for your records.</p>
+            
+            <div class="receipt-card">
+                <div class="receipt-row">
+                    <span class="receipt-label">Invoice Number</span>
+                    <span class="receipt-value">{{invoiceNumber}}</span>
+                </div>
+                <div class="receipt-row">
+                    <span class="receipt-label">Description</span>
+                    <span class="receipt-value">{{description}}</span>
+                </div>
+                <div class="receipt-row">
+                    <span class="receipt-label">Status</span>
+                    <span class="receipt-value"><span class="badge-paid">Paid</span></span>
+                </div>
+                <div class="receipt-row">
+                    <span class="receipt-label">Amount Paid</span>
+                    <span class="receipt-value total">{{currencySymbol}} {{amount}}</span>
+                </div>
+            </div>
+            
+            <p>Our luxury dispatch operations will coordinate scheduling updates with you or your driver directly. Should you need any adjustments, feel free to reply to this email.</p>
+        </div>
+        
+        <div class="email-footer">
+            <p>&copy; 2026 Tri State. All rights reserved.</p>
+            <p>For support or custom arrangement requests, please contact dispatch management.</p>
+            <div class="footer-links">
+                <a href="{{serverUrl}}/privacy-policy" class="footer-link">Privacy Policy</a>
+                <a href="{{serverUrl}}/security" class="footer-link">Security Policies</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

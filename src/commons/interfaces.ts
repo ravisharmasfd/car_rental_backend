@@ -84,3 +84,20 @@ export interface ICarModel extends Document, SoftDeleteDocument {
 	updatedAt?: Date;
 }
 
+export interface IInvoiceModel extends Document, SoftDeleteDocument {
+	_id: Types.ObjectId;
+	email: string;
+	amount: number;
+	currency: string;
+	description: string;
+	stripeCustomerId?: string;
+	stripeInvoiceId?: string;
+	status: string;
+	hostedInvoiceUrl?: string;
+	invoicePdfUrl?: string;
+	invoiceNumber?: string;
+	createdAt?: Date;
+	updatedAt?: Date;
+}
+
+

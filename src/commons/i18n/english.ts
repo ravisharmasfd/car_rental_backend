@@ -56,5 +56,7 @@ export const RESPONSE_MESSAGES_ENGLISH = {
 
 	DATA_FETCHED_SUCCESSFULLY: 'Data fetched successfully.',
 	USER_DELETED_SUCCESSFULLY: 'User deleted successfully.',
-	TRY_AFTER_SOMETIME: 'Please wait atleast for 30 seconds before trying again.'
+	TRY_AFTER_SOMETIME: 'Please wait atleast for 30 seconds before trying again.',
+	INVOICE_CREATED_SUCCESSFULLY: 'Invoice created and sent successfully.',
+	INVOICE_FETCHED_SUCCESSFULLY: 'Invoice fetched successfully.'
 };

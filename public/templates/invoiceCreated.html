@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice from Tri State</title>
+    <style>
+        body {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            line-height: 1.6;
+            color: #E0E0E0;
+            background-color: #0A0A0A;
+            margin: 0;
+            padding: 0;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: #121212;
+            border-radius: 8px;
+            border: 1px solid #c5a880;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+        .email-header {
+            background-color: #0F0F0F;
+            padding: 40px 40px 20px 40px;
+            text-align: center;
+            border-bottom: 1px solid rgba(197, 168, 128, 0.2);
+        }
+        .brand-title {
+            color: #d4af37;
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin: 0;
+        }
+        .brand-subtitle {
+            color: #A0A0A0;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: 5px 0 0 0;
+        }
+        .email-body {
+            padding: 40px;
+        }
+        h2 {
+            color: #FFFFFF;
+            font-size: 20px;
+            font-weight: normal;
+            border-bottom: 1px solid rgba(197, 168, 128, 0.2);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        p {
+            color: #B0B0B0;
+            font-size: 15px;
+            margin-bottom: 20px;
+            font-family: 'Inter', Arial, sans-serif;
+        }
+        .details-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-family: 'Inter', Arial, sans-serif;
+        }
+        .details-table th, .details-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .details-table th {
+            color: #c5a880;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+        }
+        .details-table td {
+            color: #E0E0E0;
+            font-size: 14px;
+        }
+        .details-table .amount {
+            color: #FFFFFF;
+            font-weight: bold;
+            text-align: right;
+        }
+        .details-table th.amount-header {
+            text-align: right;
+        }
+        .cta-container {
+            text-align: center;
+            margin: 35px 0;
+        }
+        .btn-pay {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4af37, #aa7c11);
+            color: #000000 !important;
+            text-decoration: none;
+            padding: 15px 35px;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+            font-family: 'Inter', Arial, sans-serif;
+        }
+        .email-footer {
+            background-color: #0F0F0F;
+            padding: 30px 40px;
+            text-align: center;
+            font-size: 12px;
+            color: #707070;
+            border-top: 1px solid rgba(197, 168, 128, 0.1);
+            font-family: 'Inter', Arial, sans-serif;
+        }
+        .footer-links {
+            margin-top: 10px;
+        }
+        .footer-link {
+            color: #c5a880;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="email-header">
+            <div class="brand-title">Tri State</div>
+            <div class="brand-subtitle">Luxury Fleet & Chauffeur Services</div>
+        </div>
+        
+        <div class="email-body">
+            <h2>Luxury Dispatch Invoice</h2>
+            <p>Dear Valued Client,</p>
+            <p>An invoice has been generated for your upcoming chauffeur dispatch or vehicle rental. Please review the service details and complete your payment below to secure your booking.</p>
+            
+            <table class="details-table">
+                <thead>
+                    <tr>
+                        <th>Service / Description</th>
+                        <th class="amount-header">Amount Due</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{description}}</td>
+                        <td class="amount">{{currencySymbol}} {{amount}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="cta-container">
+                <a href="{{hostedInvoiceUrl}}" class="btn-pay" target="_blank">Pay Invoice Online</a>
+            </div>
+            
+            <p style="font-size: 13px; color: #808080;">This paying link is secure and encrypted via Stripe. Please complete your transaction to ensure scheduling confirmation.</p>
+        </div>
+        
+        <div class="email-footer">
+            <p>&copy; 2026 Tri State. All rights reserved.</p>
+            <p>For support or custom arrangement requests, please contact dispatch management.</p>
+            <div class="footer-links">
+                <a href="{{serverUrl}}/privacy-policy" class="footer-link">Privacy Policy</a>
+                <a href="{{serverUrl}}/security" class="footer-link">Security Policies</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

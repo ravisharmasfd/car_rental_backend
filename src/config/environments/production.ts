@@ -34,7 +34,7 @@ export default {
 				user: process.env.NODEMAILER_USER || 'node-mailer-user',
 				pass: process.env.NODEMAILER_PASSWORD || 'node-mailer-password'
 			},
-			secure: true
+			secure: Number(process.env.NODEMAILER_PORT || 25) === 465
 			// tls: { rejectUnauthorized: true }
 		},
 		SENDER: process.env.SENDER_EMAIL || 'test.user@yopmail.com'
@@ -61,5 +61,7 @@ export default {
 	APN_KEYID: process.env.APN_KEY_ID || 'your-apn-keyid',
 	APN_TEAMID: process.env.APN_TEAM_ID || 'your-apn-teamid',
 	IOS_BUNDLE_ID: process.env.IOS_BUNDLE_ID || 'com.yourcompany.yourapp',
-	AI_API_ACCESS_KEY: process.env.AI_API_ACCESS_KEY || 'sample-access-key'
+	AI_API_ACCESS_KEY: process.env.AI_API_ACCESS_KEY || 'sample-access-key',
+	STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY || 'sk_test_51N...',
+	STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET || 'whsec_...'
 };

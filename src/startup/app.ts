@@ -14,7 +14,16 @@ export default async (app: Application) => {
 	app.use(cors());
 
 	// Middleware
-	app.use(express.json({ limit: '50mb' }));
+	app.use(
+		express.json({
+			limit: '50mb',
+			verify: (req: any, res, buf) => {
+				if (req.originalUrl && req.originalUrl.startsWith('/v1/stripe/webhook')) {
+					req.rawBody = buf.toString();
+				}
+			}
+		})
+	);
 	app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
 	/********************************

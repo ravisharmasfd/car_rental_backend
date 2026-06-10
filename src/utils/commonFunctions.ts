@@ -112,6 +112,22 @@ const emailTypes = (user: any, type: any) => {
 		EmailStatus.data.hotelName = user.hotelName;
 		EmailStatus.data.employeeId = user.employeeId;
 		break;
+	case EMAIL_TYPES.INVOICE_CREATED:
+		EmailStatus.Subject = EMAIL_SUBJECTS.INVOICE_CREATED;
+		EmailStatus.template = EMAIL_CONTENTS.INVOICE_CREATED;
+		EmailStatus.data.description = user.description;
+		EmailStatus.data.amount = user.amount;
+		EmailStatus.data.currencySymbol = user.currencySymbol || '$';
+		EmailStatus.data.hostedInvoiceUrl = user.hostedInvoiceUrl;
+		break;
+	case EMAIL_TYPES.INVOICE_PAID:
+		EmailStatus.Subject = EMAIL_SUBJECTS.INVOICE_PAID;
+		EmailStatus.template = EMAIL_CONTENTS.INVOICE_PAID;
+		EmailStatus.data.invoiceNumber = user.invoiceNumber;
+		EmailStatus.data.description = user.description;
+		EmailStatus.data.amount = user.amount;
+		EmailStatus.data.currencySymbol = user.currencySymbol || '$';
+		break;
 	default:
 		EmailStatus.Subject = 'Welcome Email!';
 		break;
