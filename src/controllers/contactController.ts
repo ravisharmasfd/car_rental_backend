@@ -82,8 +82,8 @@ export const listContactRequests = async (payload: any) => {
 		{ $sort: { [sortKey]: sortOrder } },
 		{
 			$facet: {
-				metadata: [{ $count: 'total' }],
-				data: [{ $skip: skip }, { $limit: limit }]
+				metadata: [ { $count: 'total' } ],
+				data: [ { $skip: skip }, { $limit: limit } ]
 			}
 		}
 	];

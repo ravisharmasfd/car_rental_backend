@@ -147,7 +147,7 @@ const defaultResponse: { [key: number]: SwaggerResponse } = {
 };
 
 const optimizeSwaggerResponse = (status: number, resp: SwaggerResponse | undefined): SwaggerResponse | undefined => {
-	const defaultStatus = [200, 401, 500];
+	const defaultStatus = [ 200, 401, 500 ];
 
 	if (!resp) {
 		return;
@@ -176,7 +176,7 @@ const optimizeSwaggerResponse = (status: number, resp: SwaggerResponse | undefin
 
 const mapSwaggerResponse = (data: { [key: number]: SwaggerResponse } | undefined): { [key: number]: SwaggerResponse } => {
 	const returnData: any = {};
-	[200, 201, 400, 401, 404, 500].forEach((status) => {
+	[ 200, 201, 400, 401, 404, 500 ].forEach((status) => {
 		returnData[status] = optimizeSwaggerResponse(status, data ? data[status] : data);
 	});
 	return returnData;
@@ -351,7 +351,7 @@ class Swagger {
 			this.paths[transformPath] = {
 				...this.paths[transformPath],
 				[method]: {
-					tags: [tag],
+					tags: [ tag ],
 					summary,
 					responses: mapSwaggerResponse(joiDefinitions.response),
 					parameters
@@ -362,7 +362,7 @@ class Swagger {
 				...this.paths,
 				[transformPath]: {
 					[method]: {
-						tags: [tag],
+						tags: [ tag ],
 						summary,
 						responses: mapSwaggerResponse(joiDefinitions.response),
 						parameters

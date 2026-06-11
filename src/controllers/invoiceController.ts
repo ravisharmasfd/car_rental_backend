@@ -3,7 +3,7 @@ import InvoiceModel from '../models/invoiceModel';
 import dbService from '../services/databaseService';
 import { createErrorResponse, createSuccessResponse } from '../commons/responseHelpers';
 import { ERROR_TYPES, RESPONSE_MESSAGES, EMAIL_TYPES } from '../commons/constants';
-import { sendEmail } from '../utils/commonFunctions';
+import { sendEmail, getCurrencySymbol } from '../utils/commonFunctions';
 import config from '../config';
 
 const stripe = new Stripe(config.STRIPE_SECRET_KEY);
@@ -30,7 +30,7 @@ export const createAndSendInvoice = async (payload: any) => {
 	const invoice = await stripe.invoices.create({
 		customer: customerId,
 		collection_method: 'send_invoice',
-		due_date: Math.floor(Date.now() / 1000) + 3600 * 24 * 7, // due in 7 days
+		due_date: Math.floor(Date.now() / 1000) + 3600 * 24 * 1, // due in 7 days
 		payment_settings: {
 			payment_method_types: ['card']
 		}
@@ -63,13 +63,13 @@ export const createAndSendInvoice = async (payload: any) => {
 	});
 
 	// 6. Send email to client
-	await sendEmail(
+	sendEmail(
 		{
 			email,
 			amount,
 			description,
 			hostedInvoiceUrl: finalizedInvoice.hosted_invoice_url,
-			currencySymbol: currency.toLowerCase() === 'eur' ? '€' : currency.toLowerCase() === 'gbp' ? '£' : '$'
+			currencySymbol: getCurrencySymbol(currency)
 		},
 		EMAIL_TYPES.INVOICE_CREATED
 	);
@@ -119,9 +119,9 @@ export const handleStripeWebhook = async (payload: any) => {
 
 			if (localInvoice) {
 				// Send confirmation email with the paid invoice as PDF attachment
-				const currencySymbol = localInvoice.currency === 'eur' ? '€' : localInvoice.currency === 'gbp' ? '£' : '$';
+				const currencySymbol = getCurrencySymbol(localInvoice.currency);
 
-				await sendEmail(
+				sendEmail(
 					{
 						email: localInvoice.email,
 						amount: localInvoice.amount,
@@ -130,11 +130,11 @@ export const handleStripeWebhook = async (payload: any) => {
 						currencySymbol,
 						attachments: stripeInvoice.invoice_pdf
 							? [
-									{
-										filename: `invoice_${localInvoice.invoiceNumber || stripeInvoice.number}.pdf`,
-										path: stripeInvoice.invoice_pdf // Nodemailer automatically downloads from URL
-									}
-								]
+								{
+									filename: `invoice_${localInvoice.invoiceNumber || stripeInvoice.number}.pdf`,
+									path: stripeInvoice.invoice_pdf // Nodemailer automatically downloads from URL
+								}
+							]
 							: []
 					},
 					EMAIL_TYPES.INVOICE_PAID

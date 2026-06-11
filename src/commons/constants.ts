@@ -152,7 +152,7 @@ export const EMAIL_CONTENTS = {
 	CONTACT_USER_CONFIRMATION: fs.readFileSync(path.join(__dirname, '../../public/templates/contactUserConfirmation.html'), { encoding: 'utf-8' })
 };
 
-export const SPECIAL_CHARACTERS = ['~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '{', '}', '[', ']', '|', '/', ':', ';', '"', "'", '<', '>', ',', '.', '?'];
+export const SPECIAL_CHARACTERS = [ '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '{', '}', '[', ']', '|', '/', ':', ';', '"', '\'', '<', '>', ',', '.', '?' ];
 
 export const USER_STATUS = {
 	ACTIVE: 1,

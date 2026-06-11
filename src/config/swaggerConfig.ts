@@ -14,7 +14,7 @@ export const SWAGGER = {
 	},
 	paths: {},
 	definitions: {},
-	schemes: ['http', 'https'],
-	consumes: ['application/json'],
-	produces: ['application/json']
+	schemes: [ 'http', 'https' ],
+	consumes: [ 'application/json' ],
+	produces: [ 'application/json' ]
 };

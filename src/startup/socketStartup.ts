@@ -13,11 +13,11 @@ export const initSocketIoService = async (server: any) => {
 	const io = new Server(server, {
 		cors: {
 			origin: '*',
-			methods: ['GET', 'POST']
+			methods: [ 'GET', 'POST' ]
 		}
 	});
 
-	const topics: any = [{ eventName: SOCKET_EVENTS.CONNECTION, handler: 'binded', status: 'success' }];
+	const topics: any = [ { eventName: SOCKET_EVENTS.CONNECTION, handler: 'binded', status: 'success' } ];
 	socketRoutes.forEach((route: any) => {
 		topics.push({ eventName: route.eventName, handler: route?.handler ? 'binded' : 'not binded', status: route?.handler ? 'success' : 'failed' });
 	});

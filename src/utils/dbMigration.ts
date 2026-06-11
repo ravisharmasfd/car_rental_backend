@@ -38,7 +38,7 @@ export const migerateDatabase = async () => {
 				luggage: 6,
 				category: 'suv',
 				badge: 'Best Value',
-				features: ['Leather Seats', 'Climate Control', 'WiFi', 'USB Charging', 'Entertainment System', 'Extra Legroom'],
+				features: [ 'Leather Seats', 'Climate Control', 'WiFi', 'USB Charging', 'Entertainment System', 'Extra Legroom' ],
 				description: 'Spacious luxury SUV ideal for group travel, family airport runs, and executive team transportation.',
 				status: 1
 			}

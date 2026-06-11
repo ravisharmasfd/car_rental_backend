@@ -11,7 +11,7 @@ const CarSchema: Schema = new Schema(
 		luggage: { type: Number, required: true },
 		category: { type: String, required: true, index: true },
 		badge: { type: String },
-		features: { type: [String], required: true },
+		features: { type: [ String ], required: true },
 		description: { type: String, required: true },
 		status: { type: Number, default: 1 }
 	},

@@ -40,4 +40,3 @@ process.on('unhandledRejection', (error: any) => {
 	log(error.message);
 });
 // Trigger nodemon restart
-
